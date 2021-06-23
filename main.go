@@ -138,6 +138,32 @@ func (m model) View() string {
 
 	return s
 }
+
+func displayBlogPost(post BlogPost) {
+	content := getStringFromUri(post.Path)
+
+	overrides := []byte(`{ "document": { "margin": 0 }, "code_block": { "margin": 0 } }`)
+
+	opts := RenderOpts{
+		glamour.WithAutoStyle(),
+		glamour.WithStylesFromJSONBytes(overrides),
+		glamour.WithEmoji(),
+	}
+
+	content = strings.ReplaceAll(content, "\r\n", "\n")
+
+	tr, err := glamour.NewTermRenderer(opts...)
+	if err != nil {
+		panic("")
+	}
+
+	out, _ := tr.Render(content)
+
+	fmt.Println(out)
+
+	tea.Quit()
+}
+
 func main() {
 	fmt.Print("\033[H\033[2J")
 
