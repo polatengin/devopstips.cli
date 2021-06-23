@@ -142,4 +142,9 @@ func main() {
 	fmt.Print("\033[H\033[2J")
 
 	blogPostList := getListOfBlogPosts()
+
+	var p = tea.NewProgram(model{
+		choices:  blogPostList,
+		selected: make(map[int]struct{}),
+	})
 }
