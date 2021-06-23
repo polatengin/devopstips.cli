@@ -71,5 +71,9 @@ func getListOfBlogPosts() []BlogPost {
 
 	return blogPostList
 }
+
+func (m model) Init() tea.Cmd {
+	return nil
+}
 func main() {
 }
