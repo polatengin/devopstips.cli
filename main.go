@@ -108,5 +108,27 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 
 	return m, nil
 }
+func (m model) View() string {
+	s := ""
+
+	selected = nil
+
+	for i, choice := range m.choices {
+		cursor := " "
+		if m.cursor == i {
+			cursor = ">"
+		}
+
+		if _, ok := m.selected[i]; ok {
+			selected = &choice
+
+			displayBlogPost(*selected)
+		}
+
+		s += fmt.Sprintf("%s %s\n", cursor, choice.Title)
+	}
+
+	return s
+}
 func main() {
 }
