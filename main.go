@@ -147,4 +147,8 @@ func main() {
 		choices:  blogPostList,
 		selected: make(map[int]struct{}),
 	})
+
+	if err := p.Start(); err != nil {
+		cli.NewExitError(err.Error(), 1)
+	}
 }
