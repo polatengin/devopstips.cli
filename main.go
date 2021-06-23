@@ -54,5 +54,22 @@ func getStringFromUri(url string) string {
 	return content
 }
 
+func getListOfBlogPosts() []BlogPost {
+	resp, err := http.Get("https://devopstips.net/api/posts.json")
+	if err != nil {
+		return nil
+	}
+
+	defer resp.Body.Close()
+	var blogPostList []BlogPost
+	buf := new(bytes.Buffer)
+	buf.ReadFrom(resp.Body)
+	respByte := buf.Bytes()
+	if err := json.Unmarshal(respByte, &blogPostList); err != nil {
+		return nil
+	}
+
+	return blogPostList
+}
 func main() {
 }
