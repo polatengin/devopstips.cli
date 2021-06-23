@@ -26,5 +26,28 @@ type BlogPost struct {
 	Date        string
 }
 
+
+func getStringFromUri(url string) string {
+	resp, _ := http.Get(url)
+
+	if resp.StatusCode != http.StatusOK {
+		panic(fmt.Errorf("HTTP status %d", resp.StatusCode))
+	}
+
+	in := resp.Body
+
+	defer in.Close()
+	content := ""
+
+	for i, s := range lines {
+		content += strings.TrimSpace(s)
+		if i+1 < len(lines) {
+			content += "\n"
+		}
+	}
+
+	return content
+}
+
 func main() {
 }
