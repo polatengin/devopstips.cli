@@ -73,6 +73,14 @@ func getListOfBlogPosts() []BlogPost {
 	return blogPostList
 }
 
+type RenderOpts []glamour.TermRendererOption
+
+type model struct {
+	choices  []BlogPost
+	cursor   int
+	selected map[int]struct{}
+}
+
 func (m model) Init() tea.Cmd {
 	return nil
 }
