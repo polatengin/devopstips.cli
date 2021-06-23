@@ -37,6 +37,11 @@ func getStringFromUri(url string) string {
 	in := resp.Body
 
 	defer in.Close()
+
+	b, _ := ioutil.ReadAll(in)
+
+	lines := strings.Split(string(utils.RemoveFrontmatter(b)), "\n")
+
 	content := ""
 
 	for i, s := range lines {
