@@ -18,5 +18,13 @@ import (
 	"github.com/urfave/cli"
 )
 
+type BlogPost struct {
+	Title       string
+	Description string
+	Url         string
+	Path        string
+	Date        string
+}
+
 func main() {
 }
