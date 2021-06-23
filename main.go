@@ -26,6 +26,7 @@ type BlogPost struct {
 	Date        string
 }
 
+var selected *BlogPost
 
 func getStringFromUri(url string) string {
 	resp, _ := http.Get(url)
