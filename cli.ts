@@ -32,6 +32,13 @@ const renderBlogPostList = async (posts: PostItem[]) => {
   }]);
 }
 
+const renderBlogPost = async (post: PostItem) => {
+  const response = await fetch(post.path)
+  const md = await response.text()
+
+  console.log(marked(md));
+};
+
 const packagejson = JSON.parse(fs.readFileSync("./package.json", "utf8"));
 
 const program = new Command();
