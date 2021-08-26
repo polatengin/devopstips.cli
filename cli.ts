@@ -23,6 +23,13 @@ marked.setOptions({
 });
 
 const renderBlogPostList = async (posts: PostItem[]) => {
+  const answers = await prompt([{
+    type: 'list',
+    name: 'selected',
+    loop: false,
+    message: 'Which post do you want to read?',
+    choices: posts.map(post => { return { name: post.title, value: post }; }),
+  }]);
 }
 
 const packagejson = JSON.parse(fs.readFileSync("./package.json", "utf8"));
