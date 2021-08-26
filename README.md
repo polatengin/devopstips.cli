@@ -5,7 +5,7 @@ CLI for DevOps Tips and Tricks Web Site
 ```bash
 docker run --rm -it -v $PWD:/src --workdir "/src" golang:1.17beta1-buster
 
-docker build --target runtime -t devopstips .
+docker build -t devopstips .
 
 docker run --rm -it devopstips
 
