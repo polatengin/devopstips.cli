@@ -2,6 +2,7 @@
 
 import { Command } from "commander";
 
+import { prompt } from "inquirer";
 
 import marked from 'marked';
 import TerminalRenderer from 'marked-terminal';
