@@ -22,3 +22,4 @@ fi
 
 "docker run --rm -it devopstips:0.1.0" > ~/devopstips
 
+docker pull polatengin/devopstips.cli:0.1.0
