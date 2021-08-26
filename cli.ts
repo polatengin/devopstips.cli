@@ -7,6 +7,7 @@ import marked from 'marked';
 import TerminalRenderer from 'marked-terminal';
 
 import fs from "fs";
+import fetch from "node-fetch";
 
 interface PostItem {
   path: string;
@@ -44,3 +45,7 @@ program
   .action(() => {
     console.log("Reading a random blog post");
   });
+
+fetch("https://devopstips.net/api/posts.json")
+  .then(response => response.json())
+  .catch(error => console.log(error));
