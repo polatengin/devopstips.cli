@@ -29,3 +29,11 @@ program
   .action((url, title) => {
     console.log("Read " + url + " as " + title);
   });
+
+program
+  .command("random")
+  .alias("x")
+  .description("Read a random blog post")
+  .action(() => {
+    console.log("Reading a random blog post");
+  });
