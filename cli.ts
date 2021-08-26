@@ -30,6 +30,9 @@ const renderBlogPostList = async (posts: PostItem[]) => {
     message: 'Which post do you want to read?',
     choices: posts.map(post => { return { name: post.title, value: post }; }),
   }]);
+
+  await renderBlogPost(answers.selected);
+
 }
 
 const renderBlogPost = async (post: PostItem) => {
