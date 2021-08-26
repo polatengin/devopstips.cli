@@ -8,3 +8,14 @@ if ! type "docker" > /dev/null; then
 
   exit 1
 fi
+
+if ! type "devopstips" > /dev/null; then
+  echo "Previous devopstips installation doesn't found, installing fresh..."
+
+  touch ~/devopstips
+  chmod +x ~/devopstips
+
+  "alias devopstips=\"~/devopstips\"" >> ~/.bashrc
+
+  source ~/.bashrc
+fi
