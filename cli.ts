@@ -39,6 +39,12 @@ const renderBlogPostList = async (posts: PostItem[]) => {
     message: 'Want to read another blog post (just hit enter for YES)?',
     default: true,
   }]);
+
+  if (!ask.again) {
+    process.exit(0);
+  }
+
+  await renderBlogPostList(posts);
 }
 
 const renderBlogPost = async (post: PostItem) => {
