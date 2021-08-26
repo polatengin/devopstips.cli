@@ -22,3 +22,10 @@ program
   .version(packagejson.version)
   .description(packagejson.description)
 
+program
+  .command("read [url] [title]")
+  .alias("r")
+  .description("Read a blog post")
+  .action((url, title) => {
+    console.log("Read " + url + " as " + title);
+  });
