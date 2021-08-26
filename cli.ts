@@ -18,3 +18,7 @@ const packagejson = JSON.parse(fs.readFileSync("./package.json", "utf8"));
 
 const program = new Command();
 
+program
+  .version(packagejson.version)
+  .description(packagejson.description)
+
