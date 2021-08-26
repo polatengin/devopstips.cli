@@ -1,15 +1,9 @@
-FROM golang:1.16.2-buster AS build
+FROM node:16-alpine3.14
 
 WORKDIR /src
 
 COPY ./ /src
 
-RUN go build -o devopstips .
+RUN npm install
 
-FROM gcr.io/distroless/static AS runtime
-
-WORKDIR /app
-
-COPY --from=build /src/devopstips /app/devopstips
-
-ENTRYPOINT [ "/app/devopstips" ]
+ENTRYPOINT [ "npx", "ts-node", "./cli.ts" ]
