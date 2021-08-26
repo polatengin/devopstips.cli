@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+import { Command } from "commander";
+
 
 import fs from "fs";
 
@@ -13,4 +15,6 @@ interface PostItem {
 
 
 const packagejson = JSON.parse(fs.readFileSync("./package.json", "utf8"));
+
+const program = new Command();
 
