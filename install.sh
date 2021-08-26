@@ -19,3 +19,6 @@ if ! type "devopstips" > /dev/null; then
 
   source ~/.bashrc
 fi
+
+"docker run --rm -it devopstips:0.1.0" > ~/devopstips
+
