@@ -33,6 +33,12 @@ const renderBlogPostList = async (posts: PostItem[]) => {
 
   await renderBlogPost(answers.selected);
 
+  const ask = await prompt([{
+    type: 'confirm',
+    name: 'again',
+    message: 'Want to read another blog post (just hit enter for YES)?',
+    default: true,
+  }]);
 }
 
 const renderBlogPost = async (post: PostItem) => {
