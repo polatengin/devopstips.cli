@@ -21,6 +21,8 @@ marked.setOptions({
   renderer: new TerminalRenderer()
 });
 
+const renderBlogPostList = async (posts: PostItem[]) => {
+}
 
 const packagejson = JSON.parse(fs.readFileSync("./package.json", "utf8"));
 
@@ -48,4 +50,5 @@ program
 
 fetch("https://devopstips.net/api/posts.json")
   .then(response => response.json())
+  .then(async (json: PostItem[]) => { await renderBlogPostList(json.reverse()); })
   .catch(error => console.log(error));
