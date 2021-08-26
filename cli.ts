@@ -3,6 +3,9 @@
 import { Command } from "commander";
 
 
+import marked from 'marked';
+import TerminalRenderer from 'marked-terminal';
+
 import fs from "fs";
 
 interface PostItem {
@@ -12,6 +15,10 @@ interface PostItem {
   description: string;
   url: string;
 }
+
+marked.setOptions({
+  renderer: new TerminalRenderer()
+});
 
 
 const packagejson = JSON.parse(fs.readFileSync("./package.json", "utf8"));
