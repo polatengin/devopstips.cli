@@ -10,3 +10,7 @@ interface PostItem {
   description: string;
   url: string;
 }
+
+
+const packagejson = JSON.parse(fs.readFileSync("./package.json", "utf8"));
+
